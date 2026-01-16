@@ -12,14 +12,66 @@ A comprehensive speech-to-text transcription system using Hugging Face Transform
 
 ## 🚀 Quick Start
 
-### 1. Installation
+### 1. Installation Python Dependency
 
 ```bash
 # Install Python dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Run Transcription
+### 2. Install FFmpeg (Required for Audio Processing)
+
+FFmpeg is required for processing various audio formats. Install it based on your operating system:
+
+**Ubuntu/Debian Linux:**
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+**Fedora/RHEL/CentOS:**
+```bash
+sudo dnf install ffmpeg
+# Or for older versions:
+sudo yum install ffmpeg
+```
+
+**macOS:**
+
+Using Homebrew (recommended):
+```bash
+# Install Homebrew if not already installed
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install ffmpeg
+brew install ffmpeg
+```
+
+Using MacPorts:
+```bash
+sudo port install ffmpeg
+```
+
+**Windows:**
+
+# Install ffmpeg
+
+1. Download FFmpeg from: https://ffmpeg.org/download.html#build-windows
+2. Extract the zip file to `C:\ffmpeg`
+3. Add `C:\ffmpeg\bin` to your system PATH:
+   - Right-click 'This PC' → Properties → Advanced System Settings
+   - Click 'Environment Variables'
+   - Under 'System Variables', find 'Path' and click 'Edit'
+   - Click 'New' and add `C:\ffmpeg\bin`
+   - Click OK on all windows
+4. Restart your terminal/command prompt
+
+**Verify FFmpeg Installation:**
+```bash
+ffmpeg -version
+```
+
+### 3. Run Transcription
 
 ```bash
 python scripts\stt_pipeline.py
