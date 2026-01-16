@@ -1,0 +1,12 @@
+{
+  "model": "whisper-tiny",
+  "audio_file": "openai-whisper.mp3",
+  "audio_duration": 45.94,
+  "processing_time": 6.48,
+  "rtf": 0.141,
+  "char_count": 547,
+  "word_count": 89,
+  "wer": 76.71,
+  "cer": 44.88,
+  "accuracy": 23.29
+}

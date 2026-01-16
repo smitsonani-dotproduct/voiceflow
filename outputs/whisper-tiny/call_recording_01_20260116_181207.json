@@ -1,0 +1,12 @@
+{
+  "model": "whisper-tiny",
+  "audio_file": "call_recording_01.wav",
+  "audio_duration": 14.75,
+  "processing_time": 3.5,
+  "rtf": 0.237,
+  "char_count": 245,
+  "word_count": 45,
+  "wer": 15.22,
+  "cer": 2.46,
+  "accuracy": 84.78
+}
