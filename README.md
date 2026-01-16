@@ -27,16 +27,6 @@ python scripts\stt_pipeline.py
 
 ## 📊 Available Models
 
-### Model Comparison
-
-| Model              | Parameters | Speed         | Accuracy    | Best For                       | WER*  |
-| ------------------ | ---------- | ------------- | ----------- | ------------------------------ | ----- |
-| **whisper-tiny**   | 39M        | ⚡⚡⚡ Very Fast | ⭐⭐⭐ Good    | Quick transcription, real-time | ~5-8% |
-| **whisper-base**   | 74M        | ⚡⚡ Fast       | ⭐⭐⭐⭐ Better | Balanced performance           | ~4-6% |
-| **distil-whisper** | 756M       | ⚡ Medium      | ⭐⭐⭐⭐⭐ Best  | High accuracy needed           | ~3-5% |
-
-*WER (Word Error Rate) - Lower is better. Values are approximate on clean English speech.
-
 ### Model Details
 
 #### 1. Whisper Tiny (`whisper-tiny`)
@@ -59,7 +49,6 @@ python scripts\stt_pipeline.py
 - **Speed**: 6x faster than Whisper Large
 - **Use Case**: Best accuracy on CPU
 - **Memory**: ~3GB RAM
-
 
 ## 📈 Benchmark Metrics
 
