@@ -87,6 +87,7 @@ python scripts\stt_pipeline.py
 - **Speed**: ~3-5x faster than base
 - **Use Case**: Quick drafts, fast processing
 - **Memory**: ~150MB RAM
+- **Link**: https://huggingface.co/openai/whisper-tiny
 
 #### 2. Whisper Base (`whisper-base`)
 - **Model**: `openai/whisper-base`
@@ -94,6 +95,7 @@ python scripts\stt_pipeline.py
 - **Speed**: Balanced
 - **Use Case**: General purpose transcription
 - **Memory**: ~300MB RAM
+- **Link**: https://huggingface.co/openai/whisper-base
 
 #### 3. Distil-Whisper (`distil-whisper`)
 - **Model**: `distil-whisper/distil-large-v3`
@@ -101,6 +103,7 @@ python scripts\stt_pipeline.py
 - **Speed**: 6x faster than Whisper Large
 - **Use Case**: Best accuracy on CPU
 - **Memory**: ~3GB RAM
+- **Link**: https://huggingface.co/distil-whisper
 
 ## 📈 Benchmark Metrics
 
