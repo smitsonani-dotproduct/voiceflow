@@ -1,0 +1,23 @@
+# Core ML Libraries
+torch>=2.0.0
+transformers>=4.35.0
+
+# Audio Processing
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Evaluation Metrics
+jiwer>=3.0.0
+
+# Utilities
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Optional: For faster audio loading
+# audioread>=3.0.0
+# ffmpeg-python>=0.2.0
+
+# Optional: Progress bars
+tqdm>=4.65.0
+
+huggingface_hub[hf_xet]

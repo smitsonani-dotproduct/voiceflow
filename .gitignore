@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Model cache and downloads
+models/
+.cache/
+huggingface/
+
+
+# Keep outputs directory but ignore contents
+!outputs/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+tmp/
