@@ -1,0 +1,14 @@
+{
+  "model": "faster-whisper-medium",
+  "model_info": {
+    "model_name": "medium",
+    "device": "cpu",
+    "load_time": 10.488462924957275
+  },
+  "audio_file": "call_recording_04.wav",
+  "audio_duration": 29.75,
+  "processing_time": 21.68,
+  "rtf": 0.729,
+  "char_count": 352,
+  "word_count": 62
+}
