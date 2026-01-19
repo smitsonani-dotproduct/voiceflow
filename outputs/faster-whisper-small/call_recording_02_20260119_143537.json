@@ -1,0 +1,9 @@
+{
+  "model": "faster-whisper-small",
+  "audio_file": "call_recording_02.wav",
+  "audio_duration": 25.45,
+  "processing_time": 7.12,
+  "rtf": 0.28,
+  "char_count": 421,
+  "word_count": 72
+}

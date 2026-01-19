@@ -5,6 +5,7 @@ from transformers import WhisperProcessor, WhisperForConditionalGeneration, Auto
 from models.base import AudioTranscriptionModel
 
 MODELS = {
+    # HuggingFace Whisper
     "whisper-tiny": {
         "model_id": "openai/whisper-tiny",
         "type": "whisper",
@@ -13,6 +14,8 @@ MODELS = {
         "model_id": "openai/whisper-base",
         "type": "whisper",
     },
+    
+    # Distil Whisper
     "distil-whisper": {
         "model_id": "distil-whisper/distil-large-v3",
         "type": "distil",
