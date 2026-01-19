@@ -1,0 +1,14 @@
+{
+  "model": "faster-whisper-large-v3",
+  "model_info": {
+    "model_name": "large-v3",
+    "device": "cpu",
+    "load_time": 23.277853965759277
+  },
+  "audio_file": "call_recording_04.wav",
+  "audio_duration": 29.75,
+  "processing_time": 58.4,
+  "rtf": 1.963,
+  "char_count": 352,
+  "word_count": 62
+}

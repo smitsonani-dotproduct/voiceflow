@@ -3,7 +3,7 @@ from models.whisper import STTModel
 from models.faster_whisper import FasterWhisperSTT
 
 MODELS = {
-    # HuggingFace Whisper
+    # Openai Whisper
     "whisper-tiny": {
         "model_id": "openai/whisper-tiny",
         "type": "whisper",
