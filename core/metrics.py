@@ -25,16 +25,20 @@ def cer(reference: str, hypothesis: str) -> float:
 
 def collect_metrics(
     audio_path: str,
-    transcription: str,
-    processing_time: float,
+    output: dict,
     model_name: str,
     reference_text: Optional[str] = None,
 ) -> dict:
     """Collect all benchmarking metrics for a single audio transcription."""
     
+    model_info = output["model_info"]
+    transcription = output["transcription"]
+    processing_time = output["processing_time"]
+    
     duration = audio_duration(audio_path)
     metrics = {
         "model": model_name,
+        "model_info": model_info,
         "audio_file": Path(audio_path).name,
         "audio_duration": round(duration, 2),
         "processing_time": round(processing_time, 2),

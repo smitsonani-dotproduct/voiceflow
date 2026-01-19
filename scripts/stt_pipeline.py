@@ -27,8 +27,7 @@ def main():
     """
     metrics = collect_metrics(
         audio_path=file_path,
-        transcription=result["transcription"],
-        processing_time=result["processing_time"],
+        output=result,
         model_name=model_name,
         reference_text=reference_text
     )
