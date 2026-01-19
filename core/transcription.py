@@ -20,12 +20,20 @@ MODELS = {
     },
 
     # Faster Whisper
+    "faster-whisper-tiny": {
+        "model_id": "tiny.en",
+        "type": "faster-whisper",
+    },
+    "faster-whisper-base": {
+        "model_id": "base.en",
+        "type": "faster-whisper",
+    },
     "faster-whisper-small": {
-        "model_id": "small",
+        "model_id": "small.en",
         "type": "faster-whisper",
     },
     "faster-whisper-medium": {
-        "model_id": "medium",
+        "model_id": "medium.en",
         "type": "faster-whisper",
     },
     "faster-whisper-large-v3": {
