@@ -1,17 +1,17 @@
 import time
 from models.whisper import STTModel
 
-SUPPORTED_MODELS = [
+MODELS = [
     "whisper-tiny",
     "whisper-base",
     "distil-whisper",
 ]
 
 def transcribe_audio(file_path: str, model_name: str, device: str = "cpu") -> dict:
-    if model_name not in SUPPORTED_MODELS:
+    if model_name not in MODELS:
         raise ValueError(
             f"Model '{model_name}' not supported. "
-            f"Choose from {SUPPORTED_MODELS}"
+            f"Choose from {MODELS}"
         )
 
     model = STTModel(model_key=model_name, device=device)
