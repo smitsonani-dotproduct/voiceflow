@@ -17,11 +17,6 @@ venv.bak/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Model cache and downloads
-models/
-.cache/
-huggingface/
-
 
 # Keep outputs directory but ignore contents
 !outputs/.gitkeep
