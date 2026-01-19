@@ -63,10 +63,10 @@ class STTModel(AudioTranscriptionModel):
         self.pipeline = pipeline(
             task="automatic-speech-recognition",
             model=self.model,
-            device=device_id,                                
-            dtype=torch.float32, 
             tokenizer=self.processor.tokenizer,
             feature_extractor=self.processor.feature_extractor,
+            dtype=torch.float32, 
+            device=device_id,                                
             chunk_length_s=30
             # stride_length_s=5
         )

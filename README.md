@@ -74,7 +74,7 @@ ffmpeg -version
 ### 3. Run Transcription
 
 ```bash
-python scripts\stt_pipeline.py
+python -m scripts.stt_pipeline
 ```
 
 ## 📊 Available Models
