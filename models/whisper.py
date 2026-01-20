@@ -9,16 +9,24 @@ MODELS = {
     "whisper-tiny": {
         "model_id": "openai/whisper-tiny",
         "type": "whisper",
+        "multilingual": True
+    },
+    "whisper-tiny-en": {
+        "model_id": "openai/whisper-tiny.en",
+        "type": "whisper",
+        "multilingual": False
     },
     "whisper-base": {
         "model_id": "openai/whisper-base",
         "type": "whisper",
+        "multilingual": True
     },
     
     # Distil Whisper
     "distil-whisper": {
         "model_id": "distil-whisper/distil-large-v3",
         "type": "distil",
+        "multilingual": True
     }
 }
 
@@ -80,9 +88,13 @@ class STTModel(AudioTranscriptionModel):
         if self.pipeline is None:
             self.load_model()
 
+        generate_kwargs = {}
+        if self.model_config.get("multilingual") == True:
+            generate_kwargs["language"] = "english"
+
         result = self.pipeline(
             audio_path,
-            generate_kwargs={"language": "english"},
+            generate_kwargs=generate_kwargs,
             return_timestamps=False,
         )
         

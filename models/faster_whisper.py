@@ -8,22 +8,27 @@ MODELS = {
     "faster-whisper-tiny": {
         "model_id": "tiny.en",
         "type": "faster-whisper",
+        "default_language": "en",
     },
     "faster-whisper-base": {
         "model_id": "base.en",
         "type": "faster-whisper",
+        "default_language": "en",
     },
     "faster-whisper-small": {
         "model_id": "small.en",
         "type": "faster-whisper",
+        "default_language": "en",
     },
     "faster-whisper-medium": {
         "model_id": "medium.en",
         "type": "faster-whisper",
+        "default_language": "en",
     },
     "faster-whisper-large-v3": {
         "model_id": "large-v3",
         "type": "faster-whisper",
+        "default_language": None,
     },
 }
 
@@ -72,9 +77,10 @@ class FasterWhisperSTT(AudioTranscriptionModel):
         if self.model is None:
             self.load_model()
 
+        language = self.model_config.get("default_language") or None
         segments, _ = self.model.transcribe(
             audio_path,
-            language="en",
+            language=language,
             beam_size=5,
         )
 

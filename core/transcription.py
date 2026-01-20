@@ -8,6 +8,10 @@ MODELS = {
         "model_id": "openai/whisper-tiny",
         "type": "whisper",
     },
+    "whisper-tiny-en": {
+        "model_id": "openai/whisper-tiny.en",
+        "type": "whisper",
+    },
     "whisper-base": {
         "model_id": "openai/whisper-base",
         "type": "whisper",
