@@ -81,7 +81,10 @@ python -m scripts.stt_pipeline
 
 ### Model Details
 
-#### OpenAI whisper variants:
+####  Whisper (OpenAI):
+
+1. [Hugging Face – Whisper Collection](https://huggingface.co/collections/openai/whisper-release)
+2. [GitHub – OpenAI Whisper Repository](https://github.com/openai/whisper)
 
 | Size   | Parameters | English-only model | Multilingual model | Required VRAM | Relative speed |
 | ------ | ---------: | ------------------ | ------------------ | ------------- | -------------- |
@@ -92,23 +95,35 @@ python -m scripts.stt_pipeline
 | large  |      1550M | N/A                | `large`            | ~10 GB        | 1×             |
 | turbo  |       809M | N/A                | `turbo`            | ~6 GB         | ~8×            |
 
-#### Other ASR Models:
+#### Faster-Whisper ASR Models (Systran):
+
+1. [Hugging Face – Faster-Whisper Collection](https://huggingface.co/collections/Systran/faster-whisper)
+2. [GitHub – Faster-Whisper Repository](https://github.com/SYSTRAN/faster-whisper)
 
 | Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Approx. Memory | Source              |
 | ------------------------- | -------------------------------- | ---------- | ---------------- | ----------------------------- | ------------------------------------------ | -------------- | ------------------- |
-| `distil-whisper`          | `distil-whisper/distil-large-v3` | ~756M      | **English only** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | ~3 GB          | ([Hugging Face][1]) |
 | `faster-whisper-tiny`     | `tiny.en` (Systran)              | 39M        | English          | Very fast (tiny model)        | Ultra-fast English on CPU/GPU              | ~1 GB          | ([Hugging Face][2]) |
 | `faster-whisper-base`     | `base.en` (Systran)              | 74M        | English          | Fast                          | Balanced speed/accuracy English            | ~1 GB          | ([Hugging Face][3]) |
 | `faster-whisper-small`    | `small.en` (Systran)             | 244M       | English          | Moderate speed                | Mid-range English accuracy                 | ~2 GB          | ([Hugging Face][4]) |
 | `faster-whisper-medium`   | `medium.en` (Systran)            | 769M       | English          | Slower than small             | High-accuracy English                      | ~5 GB          | ([Hugging Face][5]) |
 | `faster-whisper-large-v3` | `large-v3` (Systran)             | ~1550M     | Multilingual     | Slower                        | Top accuracy multilingual model            | ~10 GB         | ([Hugging Face][6]) |
 
-[1]: https://huggingface.co/distil-whisper "Huggubg Face - huggingface/distil-whisper: Distilled variant of Whisper for speech recognition. 6x faster, 50% smaller, within 1% word error rate."
 [2]: https://huggingface.co/Systran/faster-whisper-tiny.en "Systran/faster-whisper-tiny.en · Hugging Face"
 [3]: https://huggingface.co/Systran/faster-whisper-base.en "Systran/faster-whisper-base.en · Hugging Face"
 [4]: https://huggingface.co/Systran/faster-whisper-small.en "Systran/faster-whisper-small.en · Hugging Face"
 [5]: https://huggingface.co/Systran/faster-whisper-medium "Systran/faster-whisper-medium · Hugging Face"
 [6]: https://huggingface.co/Systran/faster-whisper-large-v3 "Systran/faster-whisper-large-v3 · Hugging Face"
+
+####  Distil-Whisper (Whisper Distillation):
+
+1. [Hugging Face – Distil-Whisper Models](https://huggingface.co/distil-whisper)
+2. [GitHub – Distil-Whisper Repository](https://github.com/huggingface/distil-whisper)
+
+| Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Approx. Memory | Source              |
+| ------------------------- | -------------------------------- | ---------- | ---------------- | ----------------------------- | ------------------------------------------ | -------------- | ------------------- |
+| `distil-whisper`          | `distil-whisper/distil-large-v3` | ~756M      | **English only** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | ~3 GB          | ([Hugging Face][1]) |
+
+[1]: https://huggingface.co/distil-whisper "Huggubg Face - huggingface/distil-whisper: Distilled variant of Whisper for speech recognition. 6x faster, 50% smaller, within 1% word error rate."
 
 
 ## 📈 Benchmark Metrics
