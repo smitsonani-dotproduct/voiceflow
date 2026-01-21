@@ -81,29 +81,35 @@ python -m scripts.stt_pipeline
 
 ### Model Details
 
-#### 1. Whisper Tiny (`whisper-tiny`)
-- **Model**: `openai/whisper-tiny`
-- **Size**: 39M parameters
-- **Speed**: ~3-5x faster than base
-- **Use Case**: Quick drafts, fast processing
-- **Memory**: ~150MB RAM
-- **Link**: https://huggingface.co/openai/whisper-tiny
+#### OpenAI whisper variants:
 
-#### 2. Whisper Base (`whisper-base`)
-- **Model**: `openai/whisper-base`
-- **Size**: 74M parameters
-- **Speed**: Balanced
-- **Use Case**: General purpose transcription
-- **Memory**: ~300MB RAM
-- **Link**: https://huggingface.co/openai/whisper-base
+| Size   | Parameters | English-only model | Multilingual model | Required VRAM | Relative speed |
+| ------ | ---------: | ------------------ | ------------------ | ------------- | -------------- |
+| tiny   |        39M | `tiny.en`          | `tiny`             | ~1 GB         | ~10×           |
+| base   |        74M | `base.en`          | `base`             | ~1 GB         | ~7×            |
+| small  |       244M | `small.en`         | `small`            | ~2 GB         | ~4×            |
+| medium |       769M | `medium.en`        | `medium`           | ~5 GB         | ~2×            |
+| large  |      1550M | N/A                | `large`            | ~10 GB        | 1×             |
+| turbo  |       809M | N/A                | `turbo`            | ~6 GB         | ~8×            |
 
-#### 3. Distil-Whisper (`distil-whisper`)
-- **Model**: `distil-whisper/distil-large-v3`
-- **Size**: 756M parameters (distilled for efficiency)
-- **Speed**: 6x faster than Whisper Large
-- **Use Case**: Best accuracy on CPU
-- **Memory**: ~3GB RAM
-- **Link**: https://huggingface.co/distil-whisper
+#### Other ASR Models:
+
+| Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Approx. Memory | Source              |
+| ------------------------- | -------------------------------- | ---------- | ---------------- | ----------------------------- | ------------------------------------------ | -------------- | ------------------- |
+| `distil-whisper`          | `distil-whisper/distil-large-v3` | ~756M      | **English only** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | ~3 GB          | ([Hugging Face][1]) |
+| `faster-whisper-tiny`     | `tiny.en` (Systran)              | 39M        | English          | Very fast (tiny model)        | Ultra-fast English on CPU/GPU              | ~1 GB          | ([Hugging Face][2]) |
+| `faster-whisper-base`     | `base.en` (Systran)              | 74M        | English          | Fast                          | Balanced speed/accuracy English            | ~1 GB          | ([Hugging Face][3]) |
+| `faster-whisper-small`    | `small.en` (Systran)             | 244M       | English          | Moderate speed                | Mid-range English accuracy                 | ~2 GB          | ([Hugging Face][4]) |
+| `faster-whisper-medium`   | `medium.en` (Systran)            | 769M       | English          | Slower than small             | High-accuracy English                      | ~5 GB          | ([Hugging Face][5]) |
+| `faster-whisper-large-v3` | `large-v3` (Systran)             | ~1550M     | Multilingual     | Slower                        | Top accuracy multilingual model            | ~10 GB         | ([Hugging Face][6]) |
+
+[1]: https://huggingface.co/distil-whisper "Huggubg Face - huggingface/distil-whisper: Distilled variant of Whisper for speech recognition. 6x faster, 50% smaller, within 1% word error rate."
+[2]: https://huggingface.co/Systran/faster-whisper-tiny.en "Systran/faster-whisper-tiny.en · Hugging Face"
+[3]: https://huggingface.co/Systran/faster-whisper-base.en "Systran/faster-whisper-base.en · Hugging Face"
+[4]: https://huggingface.co/Systran/faster-whisper-small.en "Systran/faster-whisper-small.en · Hugging Face"
+[5]: https://huggingface.co/Systran/faster-whisper-medium "Systran/faster-whisper-medium · Hugging Face"
+[6]: https://huggingface.co/Systran/faster-whisper-large-v3 "Systran/faster-whisper-large-v3 · Hugging Face"
+
 
 ## 📈 Benchmark Metrics
 
