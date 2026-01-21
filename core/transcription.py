@@ -1,26 +1,26 @@
 import time
-from models.whisper import STTModel
+from models.whisper import TransformerBasedSTTModel
 from models.faster_whisper import FasterWhisperSTT
 
 MODELS = {
     # Openai Whisper
     "whisper-tiny": {
         "model_id": "openai/whisper-tiny",
-        "type": "whisper",
+        "type": "openai-whisper",
     },
     "whisper-tiny-en": {
         "model_id": "openai/whisper-tiny.en",
-        "type": "whisper",
+        "type": "openai-whisper",
     },
     "whisper-base": {
         "model_id": "openai/whisper-base",
-        "type": "whisper",
+        "type": "openai-whisper",
     },
 
     # Distil Whisper
     "distil-whisper": {
         "model_id": "distil-whisper/distil-large-v3",
-        "type": "distil",
+        "type": "distil-whisper",
     },
 
     # Faster Whisper
@@ -62,7 +62,7 @@ def transcribe_audio(file_path: str, model_name: str, device: str = "cpu") -> di
             device=device,
         )
     else:
-        model = STTModel(
+        model = TransformerBasedSTTModel(
             model_key=model_name,
             device=device,
         )

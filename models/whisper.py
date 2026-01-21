@@ -8,30 +8,30 @@ MODELS = {
     # HuggingFace Whisper
     "whisper-tiny": {
         "model_id": "openai/whisper-tiny",
-        "type": "whisper",
+        "type": "openai-whisper",
         "multilingual": True
     },
     "whisper-tiny-en": {
         "model_id": "openai/whisper-tiny.en",
-        "type": "whisper",
+        "type": "openai-whisper",
         "multilingual": False
     },
     "whisper-base": {
         "model_id": "openai/whisper-base",
-        "type": "whisper",
+        "type": "openai-whisper",
         "multilingual": True
     },
     
     # Distil Whisper
     "distil-whisper": {
         "model_id": "distil-whisper/distil-large-v3",
-        "type": "distil",
+        "type": "distil-whisper",
         "multilingual": True
     }
 }
 
 
-class STTModel(AudioTranscriptionModel):
+class TransformerBasedSTTModel(AudioTranscriptionModel):
     """
     Unified Models Speech-to-Text Engine
     Supports:
@@ -56,7 +56,7 @@ class STTModel(AudioTranscriptionModel):
         start = time.time()
         device_id = -1 if self.device == "cpu" else 0
 
-        if self.model_config["type"] == "whisper":
+        if self.model_config["type"] == "openai-whisper":
             self.processor = WhisperProcessor.from_pretrained(self.model_name)
             self.model = WhisperForConditionalGeneration.from_pretrained(
                 self.model_name,
