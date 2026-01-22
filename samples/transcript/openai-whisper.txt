@@ -1,0 +1,1 @@
+Today I will talk about OpenAI Whisper Model Basically, Whisper is a state-of-the-art model for automatic speech recognition and speech translation Proposed in the paper "Robust Speech Recognition via Large-scale Wix Supervisors" by Alec Redford from OpenAI

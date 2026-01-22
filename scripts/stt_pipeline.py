@@ -1,10 +1,10 @@
-from core.audio_input import get_audio_file
+from core.audio_input import get_audio_file, load_reference_text
 from core.transcription import transcribe_audio
 from core.storage import save_transcription, save_metrics
 from core.metrics import collect_metrics
 
 def main():
-    filename = 'call_recording_01.wav'
+    filename = 'call_recording_04.wav'
     file_path = get_audio_file(filename)
     print('file_path =>',file_path)
     
@@ -22,13 +22,11 @@ def main():
     )
     print('\n~~~  Transcription saved ~~~\n')
 
-    reference_text = """
-    Hello, I'm Sarah Miller. I'm calling to inquire about the AC 7892 air conditioner unit. I saw it on your website and I had a few questions. First, what's the BTU rating? And second, does it come with a remote control or is that sold separately?
-    """
+    reference_text = load_reference_text(file_path=filename)
+    
     metrics = collect_metrics(
         audio_path=file_path,
         output=result,
-        model_name=model_name,
         reference_text=reference_text
     )
     print('\n~~~ metrics ~~~\n',metrics)

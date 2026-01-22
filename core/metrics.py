@@ -1,5 +1,3 @@
-# metrics.py
-import time
 import librosa
 import jiwer
 from typing import Optional

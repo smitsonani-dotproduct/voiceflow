@@ -5,7 +5,7 @@ SUPPORTED_FORMATS = (".wav", ".mp3", ".flac")
 
 def get_audio_file(
     filename: str,
-    samples_dir: str = "samples"
+    samples_dir: str = "samples/audio"
 ) -> str:
     """
     Validate and return a single audio file path.
@@ -30,3 +30,18 @@ def get_audio_file(
         )
 
     return str(file_path)
+
+def load_reference_text(
+    file_path: str,
+    transcript_dir: str = "samples/transcripts",
+) -> Optional[str]:
+    """
+    Load reference transcript matching the audio filename.
+    """
+    audio_name = Path(file_path).stem
+    transcript_path = Path(transcript_dir) / f"{audio_name}.txt"
+
+    if transcript_path.exists():
+        return transcript_path.read_text(encoding="utf-8").strip()
+
+    return None
