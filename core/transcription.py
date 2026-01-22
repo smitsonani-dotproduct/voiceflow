@@ -1,51 +1,7 @@
 import time
 from models.whisper import TransformerBasedSTTModel
 from models.faster_whisper import FasterWhisperSTT
-
-MODELS = {
-    # Openai Whisper
-    "whisper-tiny": {
-        "model_id": "openai/whisper-tiny",
-        "type": "openai-whisper",
-    },
-    "whisper-tiny-en": {
-        "model_id": "openai/whisper-tiny.en",
-        "type": "openai-whisper",
-    },
-    "whisper-base": {
-        "model_id": "openai/whisper-base",
-        "type": "openai-whisper",
-    },
-
-    # Distil Whisper
-    "distil-whisper": {
-        "model_id": "distil-whisper/distil-large-v3",
-        "type": "distil-whisper",
-    },
-
-    # Faster Whisper
-    "faster-whisper-tiny": {
-        "model_id": "tiny.en",
-        "type": "faster-whisper",
-    },
-    "faster-whisper-base": {
-        "model_id": "base.en",
-        "type": "faster-whisper",
-    },
-    "faster-whisper-small": {
-        "model_id": "small.en",
-        "type": "faster-whisper",
-    },
-    "faster-whisper-medium": {
-        "model_id": "medium.en",
-        "type": "faster-whisper",
-    },
-    "faster-whisper-large-v3": {
-        "model_id": "large-v3",
-        "type": "faster-whisper",
-    },
-}
-
+from models.base import MODELS
 
 def transcribe_audio(file_path: str, model_name: str, device: str = "cpu") -> dict:
     if model_name not in MODELS:

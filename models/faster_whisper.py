@@ -1,37 +1,7 @@
 import time
 from typing import Optional
 from faster_whisper import WhisperModel
-from models.base import AudioTranscriptionModel
-
-
-MODELS = {
-    "faster-whisper-tiny": {
-        "model_id": "tiny.en",
-        "type": "faster-whisper",
-        "default_language": "en",
-    },
-    "faster-whisper-base": {
-        "model_id": "base.en",
-        "type": "faster-whisper",
-        "default_language": "en",
-    },
-    "faster-whisper-small": {
-        "model_id": "small.en",
-        "type": "faster-whisper",
-        "default_language": "en",
-    },
-    "faster-whisper-medium": {
-        "model_id": "medium.en",
-        "type": "faster-whisper",
-        "default_language": "en",
-    },
-    "faster-whisper-large-v3": {
-        "model_id": "large-v3",
-        "type": "faster-whisper",
-        "default_language": None,
-    },
-}
-
+from models.base import AudioTranscriptionModel, MODELS
 
 class FasterWhisperSTT(AudioTranscriptionModel):
     """

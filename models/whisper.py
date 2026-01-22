@@ -2,34 +2,7 @@ import torch
 import time
 from typing import Any
 from transformers import WhisperProcessor, WhisperForConditionalGeneration, AutoProcessor, AutoModelForSpeechSeq2Seq, pipeline
-from models.base import AudioTranscriptionModel
-
-MODELS = {
-    # HuggingFace Whisper
-    "whisper-tiny": {
-        "model_id": "openai/whisper-tiny",
-        "type": "openai-whisper",
-        "multilingual": True
-    },
-    "whisper-tiny-en": {
-        "model_id": "openai/whisper-tiny.en",
-        "type": "openai-whisper",
-        "multilingual": False
-    },
-    "whisper-base": {
-        "model_id": "openai/whisper-base",
-        "type": "openai-whisper",
-        "multilingual": True
-    },
-    
-    # Distil Whisper
-    "distil-whisper": {
-        "model_id": "distil-whisper/distil-large-v3",
-        "type": "distil-whisper",
-        "multilingual": True
-    }
-}
-
+from models.base import AudioTranscriptionModel, MODELS
 
 class TransformerBasedSTTModel(AudioTranscriptionModel):
     """
