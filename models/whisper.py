@@ -1,16 +1,13 @@
 import torch
 import time
-from typing import Any
+# from typing import Any
 from transformers import WhisperProcessor, WhisperForConditionalGeneration, AutoProcessor, AutoModelForSpeechSeq2Seq, pipeline
 from models.base import AudioTranscriptionModel, MODELS
 
 class TransformerBasedSTTModel(AudioTranscriptionModel):
     """
     Unified Models Speech-to-Text Engine
-    Supports:
-      - whisper-tiny
-      - whisper-base
-      - distil-whisper
+    CPU + GPU compatible Transformer-based STT
     """
 
     def __init__(self, model_key: str, device: str = "cpu"):
@@ -25,33 +22,52 @@ class TransformerBasedSTTModel(AudioTranscriptionModel):
             device=device,
         )
 
+        self.is_gpu = torch.cuda.is_available() and device.startswith("cuda")
+        self.dtype = torch.float16 if self.is_gpu else torch.float32
+
+    def _get_pipeline_device(self) -> int:
+        """
+        HuggingFace pipeline expects:
+        -1 for CPU
+         N for cuda:N
+        """
+        if not self.is_gpu:
+            return -1
+        if self.device == "cuda":
+            return 0
+        return int(self.device.split(":")[1])
+
     def load_model(self) -> None:
         start = time.time()
-        device_id = -1 if self.device == "cpu" else 0
+        device_id = self._get_pipeline_device()
 
         if self.model_config["type"] == "openai-whisper":
             self.processor = WhisperProcessor.from_pretrained(self.model_name)
             self.model = WhisperForConditionalGeneration.from_pretrained(
                 self.model_name,
+                dtype=self.dtype,
+                low_cpu_mem_usage=True,
+                use_safetensors=True,
             )
         else:
             self.processor = AutoProcessor.from_pretrained(self.model_name)
             self.model = AutoModelForSpeechSeq2Seq.from_pretrained(
                 self.model_name,
-                dtype=torch.float32,
+                dtype=self.dtype,
                 low_cpu_mem_usage=True,
                 use_safetensors=True,
             )
-            self.model.to(self.device)
+
+        self.model.to(self.device)
 
         self.pipeline = pipeline(
             task="automatic-speech-recognition",
             model=self.model,
             tokenizer=self.processor.tokenizer,
             feature_extractor=self.processor.feature_extractor,
-            dtype=torch.float32, 
-            device=device_id,                                
-            chunk_length_s=30
+            dtype=self.dtype,
+            device=device_id,
+            chunk_length_s=30,
             # stride_length_s=5
         )
 
@@ -62,7 +78,8 @@ class TransformerBasedSTTModel(AudioTranscriptionModel):
             self.load_model()
 
         generate_kwargs = {}
-        if self.model_config.get("multilingual") == True:
+
+        if self.model_config.get("multilingual"):
             generate_kwargs["language"] = "english"
 
         result = self.pipeline(

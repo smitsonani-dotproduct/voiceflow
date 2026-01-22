@@ -26,14 +26,12 @@ MODELS: Dict[str, Dict[str, Any]] = {
         "type": "openai-whisper",
         "multilingual": True,
         "size_mb": 3060
-
     },
     "whisper-tiny-en": {
         "model_id": "openai/whisper-tiny.en",
         "type": "openai-whisper",
         "multilingual": False,
         "size_mb": 151
-
     },
     "whisper-base-en": {
         "model_id": "openai/whisper-base.en",
@@ -80,14 +78,12 @@ MODELS: Dict[str, Dict[str, Any]] = {
         "type": "faster-whisper",
         "default_language": "en",
         "size_mb": 78
-
     },
     "faster-whisper-base": {
         "model_id": "base.en",
         "type": "faster-whisper",
         "default_language": "en",
         "size_mb": 148
-
     },
     "faster-whisper-small": {
         "model_id": "small.en",
@@ -100,7 +96,6 @@ MODELS: Dict[str, Dict[str, Any]] = {
         "type": "faster-whisper",
         "default_language": "en",
         "size_mb": 1530
-
     },
     "faster-whisper-large-v3": {
         "model_id": "large-v3",
