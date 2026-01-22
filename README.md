@@ -86,7 +86,7 @@ python -m scripts.stt_pipeline
 1. [Hugging Face – Whisper Collection](https://huggingface.co/openai/models)
 2. [GitHub – OpenAI Whisper Repository](https://github.com/openai/whisper)
 
-| Size   | Parameters | English-only model | Multilingual model | Required VRAM | Relative speed |
+| Size   | Parameters | English-only model | Multilingual model | Model size    | Relative speed |
 | ------ | ---------: | ------------------ | ------------------ | ------------- | -------------- |
 | tiny   |        39M | `tiny.en`          | `tiny`             | 151 MB        | ~10×           |
 | base   |        74M | `base.en`          | `base`             | 290 M         | ~7×            |
@@ -100,7 +100,7 @@ python -m scripts.stt_pipeline
 1. [Hugging Face – Faster-Whisper Collection](https://huggingface.co/collections/Systran/faster-whisper)
 2. [GitHub – Faster-Whisper Repository](https://github.com/SYSTRAN/faster-whisper)
 
-| Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Approx. Memory | Source              |
+| Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Model size     | Source              |
 | ------------------------- | -------------------------------- | ---------- | ---------------- | ----------------------------- | ------------------------------------------ | -------------- | ------------------- |
 | `faster-whisper-tiny`     | `tiny.en` (Systran)              | 39M        | English          | Very fast (tiny model)        | Ultra-fast English on CPU/GPU              | 78 MB          | ([Hugging Face][2]) |
 | `faster-whisper-base`     | `base.en` (Systran)              | 74M        | English          | Fast                          | Balanced speed/accuracy English            | 148 MB         | ([Hugging Face][3]) |
@@ -119,7 +119,7 @@ python -m scripts.stt_pipeline
 1. [Hugging Face – Distil-Whisper Models](https://huggingface.co/distil-whisper)
 2. [GitHub – Distil-Whisper Repository](https://github.com/huggingface/distil-whisper)
 
-| Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Approx. Memory | Source               |
+| Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Models size    | Source               |
 | ------------------------- | -------------------------------- | ---------- | ---------------- | ----------------------------- | ------------------------------------------ | -------------- | -------------------  |
 | `distil-whisper-small`    | `distil-whisper/distil-small.en` |  166M      | **English only** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | 332 MB         | ([Hugging Face][11]) |
 | `distil-whisper-medium`   | `distil-whisper/distil-medium.en`|  394M      | **English only** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | 789 MB         | ([Hugging Face][12]) |
