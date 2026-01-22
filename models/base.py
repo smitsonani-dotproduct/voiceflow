@@ -27,6 +27,12 @@ MODELS: Dict[str, Dict[str, Any]] = {
         "multilingual": True,
         "size_mb": 3060
     },
+    "whisper-large-v3-turbo": {
+        "model_id": "openai/whisper-large-v3-turbo",
+        "type": "openai-whisper",
+        "multilingual": True,
+        "size_mb": 1620
+    },
     "whisper-tiny-en": {
         "model_id": "openai/whisper-tiny.en",
         "type": "openai-whisper",

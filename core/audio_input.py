@@ -33,7 +33,7 @@ def get_audio_file(
 
 def load_reference_text(
     file_path: str,
-    transcript_dir: str = "samples/transcripts",
+    transcript_dir: str = "samples/transcript",
 ) -> Optional[str]:
     """
     Load reference transcript matching the audio filename.
