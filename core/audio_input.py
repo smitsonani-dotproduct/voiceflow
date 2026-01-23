@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List, Optional
 
-SUPPORTED_FORMATS = (".wav", ".mp3", ".flac")
+SUPPORTED_FORMATS = (".wav", ".mp3", ".flac", ".mp4")
 
 def get_audio_file(
     filename: str,
