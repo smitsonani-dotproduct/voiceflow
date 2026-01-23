@@ -86,14 +86,14 @@ python -m scripts.stt_pipeline
 1. [Hugging Face – Whisper Collection](https://huggingface.co/openai/models)
 2. [GitHub – OpenAI Whisper Repository](https://github.com/openai/whisper)
 
-| Size   | Parameters | English-only model | Multilingual model | Model size    | Relative speed |
-| ------ | ---------: | ------------------ | ------------------ | ------------- | -------------- |
-| tiny   |        39M | `tiny.en`          | `tiny`             | 151 MB        | ~10×           |
-| base   |        74M | `base.en`          | `base`             | 290 M         | ~7×            |
-| small  |       244M | `small.en`         | `small`            | 967 GB        | ~4×            |
-| medium |       769M | `medium.en`        | `medium`           | 3.06 GB       | ~2×            |
-| large  |      1550M | N/A                | `large`            | ~6 GB         | 1×             |
-| turbo  |       809M | N/A                | `turbo`            | ~6 GB         | ~8×            |
+| Size   | Parameters | English-only model | Multilingual model | Model size    |
+| ------ | ---------: | ------------------ | ------------------ | ------------- |
+| tiny   |        39M | `tiny.en`          | `tiny`             | 151 MB        | 
+| base   |        74M | `base.en`          | `base`             | 290 M         |
+| small  |       244M | `small.en`         | `small`            | 967 GB        |
+| medium |       769M | `medium.en`        | `medium`           | 3.06 GB       |
+| large  |      1550M | N/A                | `large`            | ~6 GB         |
+| turbo  |       809M | N/A                | `turbo`            | ~6 GB         |
 
 #### Faster-Whisper ASR Models (Systran):
 
@@ -119,11 +119,11 @@ python -m scripts.stt_pipeline
 1. [Hugging Face – Distil-Whisper Models](https://huggingface.co/distil-whisper)
 2. [GitHub – Distil-Whisper Repository](https://github.com/huggingface/distil-whisper)
 
-| Model Key                 | HF Model ID                      | Parameters | Language Support | Speed / Relative              | Typical Use Case                           | Models size    | Source               |
-| ------------------------- | -------------------------------- | ---------- | ---------------- | ----------------------------- | ------------------------------------------ | -------------- | -------------------  |
-| `distil-whisper-small`    | `distil-whisper/distil-small.en` |  166M      | **English only** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | 332 MB         | ([Hugging Face][11]) |
-| `distil-whisper-medium`   | `distil-whisper/distil-medium.en`|  394M      | **English only** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | 789 MB         | ([Hugging Face][12]) |
-| `distil-whisper`          | `distil-whisper/distil-large-v3` |  756M      | **Multilingual** | ~6× faster than Whisper large | High-accuracy English transcription on CPU | 1.51 GB        | ([Hugging Face][13]) |
+| Model Key                 | HF Model ID                      | Parameters | Language Support | Models size    | Source               |
+| ------------------------- | -------------------------------- | ---------- | ---------------- | -------------- | -------------------- |
+| `distil-whisper-small`    | `distil-whisper/distil-small.en` |  166M      | **English only** | 332 MB         | ([Hugging Face][11]) |
+| `distil-whisper-medium`   | `distil-whisper/distil-medium.en`|  394M      | **English only** | 789 MB         | ([Hugging Face][12]) |
+| `distil-whisper`          | `distil-whisper/distil-large-v3` |  756M      | **Multilingual** | 1.51 GB        | ([Hugging Face][13]) |
 
 [11]: https://huggingface.co/distil-whisper/distil-small.en "Huggubg Face - huggingface/distil-whisper: Distilled variant of Whisper for speech recognition. 6x faster, 50% smaller, within 1% word error rate."
 [12]: https://huggingface.co/distil-whisper/distil-medium.en "Huggubg Face - huggingface/distil-whisper: Distilled variant of Whisper for speech recognition. 6x faster, 50% smaller, within 1% word error rate."
