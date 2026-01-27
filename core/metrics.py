@@ -2,6 +2,7 @@ import librosa
 import jiwer
 from typing import Optional
 from pathlib import Path
+from .utils import seconds_to_hms
 
 def audio_duration(audio_path: str) -> float:
     """Get audio duration in seconds."""
@@ -36,8 +37,8 @@ def collect_metrics(
     metrics = {
         "model_info": model_info,
         "audio_file": Path(audio_path).name,
-        "audio_duration": round(duration, 2),
-        "processing_time": round(processing_time, 2),
+        "audio_duration": seconds_to_hms(duration),
+        "processing_time": seconds_to_hms(processing_time),
         "rtf": round(real_time_factor(duration, processing_time), 3),
         "char_count": len(transcription),
         "word_count": len(transcription.split()),
