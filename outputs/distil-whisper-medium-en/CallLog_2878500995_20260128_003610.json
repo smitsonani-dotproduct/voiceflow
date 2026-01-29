@@ -1,0 +1,16 @@
+{
+  "model_info": {
+    "model_name": "distil-whisper/distil-medium.en",
+    "device": "cpu",
+    "load_time": 13.68244481086731
+  },
+  "audio_file": "CallLog_2878500995.wav",
+  "audio_duration": "00:09:11",
+  "processing_time": "00:10:21",
+  "rtf": 1.128,
+  "char_count": 3081,
+  "word_count": 571,
+  "WER": 43.71,
+  "CER": 30.2,
+  "accuracy": 56.29
+}

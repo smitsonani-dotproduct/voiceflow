@@ -1,0 +1,16 @@
+{
+  "model_info": {
+    "model_name": "openai/whisper-base.en",
+    "device": "cpu",
+    "load_time": 8.382442474365234
+  },
+  "audio_file": "CallLog_6422145041.wav",
+  "audio_duration": "00:05:38",
+  "processing_time": "00:01:36",
+  "rtf": 0.284,
+  "char_count": 2566,
+  "word_count": 476,
+  "WER": 26.95,
+  "CER": 11.06,
+  "accuracy": 73.05
+}

@@ -1,0 +1,16 @@
+{
+  "model_info": {
+    "model_name": "small.en",
+    "device": "cpu",
+    "load_time": 2.803697347640991
+  },
+  "audio_file": "CallLog_9614990365.wav",
+  "audio_duration": "00:07:20",
+  "processing_time": "00:02:07",
+  "rtf": 0.29,
+  "char_count": 2504,
+  "word_count": 475,
+  "WER": 54.79,
+  "CER": 45.25,
+  "accuracy": 45.21
+}

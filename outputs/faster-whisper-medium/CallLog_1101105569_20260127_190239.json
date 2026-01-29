@@ -1,0 +1,16 @@
+{
+  "model_info": {
+    "model_name": "medium.en",
+    "device": "cpu",
+    "load_time": 9.257564067840576
+  },
+  "audio_file": "CallLog_1101105569.wav",
+  "audio_duration": "00:06:27",
+  "processing_time": "00:05:48",
+  "rtf": 0.901,
+  "char_count": 3794,
+  "word_count": 717,
+  "WER": 27.77,
+  "CER": 18.31,
+  "accuracy": 72.23
+}

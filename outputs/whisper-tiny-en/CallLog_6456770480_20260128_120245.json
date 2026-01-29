@@ -1,0 +1,16 @@
+{
+  "model_info": {
+    "model_name": "openai/whisper-tiny.en",
+    "device": "cpu",
+    "load_time": 10.87668514251709
+  },
+  "audio_file": "CallLog_6456770480.wav",
+  "audio_duration": "00:05:29",
+  "processing_time": "00:02:20",
+  "rtf": 0.427,
+  "char_count": 3944,
+  "word_count": 748,
+  "WER": 29.96,
+  "CER": 15.36,
+  "accuracy": 70.04
+}
