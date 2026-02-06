@@ -35,4 +35,6 @@ Thumbs.db
 .temp/
 tmp/
 
-samples/audio
+samples/audio/*
+
+.env

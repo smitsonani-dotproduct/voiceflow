@@ -1,7 +1,11 @@
+import os
 from abc import ABC, abstractmethod
 from typing import Dict, Any
+from dotenv import load_dotenv
+load_dotenv()
 
 MODELS: Dict[str, Dict[str, Any]] = {
+    # STT models
     # OpenAI Whisper
     "whisper-tiny": {
         "model_id": "openai/whisper-tiny",
@@ -108,8 +112,59 @@ MODELS: Dict[str, Dict[str, Any]] = {
         "type": "faster-whisper",
         "default_language": None,
         "size_mb": 3090
-    }
+    },
+    
+    
+    # Cloud API LLMs 
+    "o4-mini":{
+        "provider": "OpenAI",
+        "openAIApiKey": os.getenv("OPENAI_API_KEY"),
+        "modelName": "o4-mini",
+        "temperature": 1,
+        "timeout":3000000,
+        "maxTokens": 100000,
+        "modelKwargs": {
+            "response_format": { "type": "json_object" },
+        },
+    },
+    "gpt-5-mini": {
+        "provider": "OpenAI",
+        "openAIApiKey": os.getenv("OPENAI_API_KEY"),
+        "modelName": "gpt-5-mini",
+        "temperature": 1,
+        "timeout":3000000,
+        "maxTokens": 128000,
+        "modelKwargs": {
+            "response_format": { "type": "json_object" },
+        },
+    },
+    "gpt-5.2": { # BEST reasoning model
+        "provider": "OpenAI",
+        "openAIApiKey": os.getenv("OPENAI_API_KEY"),
+        "modelName": "gpt-5.2",
+        "temperature": 1,
+        "timeout":3000000,
+        "maxTokens": 128000,
+        "modelKwargs": {
+            "response_format": { "type": "json_object" },
+        },
+    },
 }
+
+
+def getModelConfig(model_key: str) -> Dict[str, Any]:
+    """
+    Get model configuration by model key.
+    """
+    if model_key not in MODELS:
+        available_models = ", ".join(MODELS.keys())
+        raise ValueError(
+            f"Model '{model_key}' not found. "
+            f"Available models: {available_models}"
+        )
+    
+    return MODELS[model_key]
+
 
 class AudioTranscriptionModel(ABC):
     def __init__(self, model_name: str, device: str = "cpu"):

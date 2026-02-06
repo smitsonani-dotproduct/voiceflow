@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional
 
 SUPPORTED_FORMATS = (".wav", ".mp3", ".flac", ".mp4")
 
@@ -45,3 +45,25 @@ def load_reference_text(
         return transcript_path.read_text(encoding="utf-8").strip()
 
     return None
+
+def get_transcription_file(filename: str, stt_model_name: str, outputs_dir: str = "outputs") -> str:
+    """
+    Get transcription file path from outputs directory.
+    """
+    outputs_path = Path(outputs_dir)
+    model_dir = outputs_path / stt_model_name
+    file_path = model_dir / filename
+    
+    if not outputs_path.exists():
+        raise FileNotFoundError(f"Outputs directory not found: {outputs_dir}")
+    
+    if not model_dir.exists():
+        raise FileNotFoundError(f"Model directory not found: {model_dir}")
+    
+    if not file_path.exists():
+        raise FileNotFoundError(f"Transcription file not found: {file_path}")
+    
+    if not file_path.is_file():
+        raise ValueError(f"Not a file: {file_path}")
+    
+    return str(file_path)
