@@ -24,6 +24,7 @@ huggingface_hub[hf_xet]
 
 # models
 faster-whisper
+mistralai
 
 # OpenAI API
 openai>=1.0.0

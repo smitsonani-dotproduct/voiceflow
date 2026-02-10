@@ -114,6 +114,21 @@ MODELS: Dict[str, Dict[str, Any]] = {
         "size_mb": 3090
     },
     
+    # Mistral AI Transcription
+    "voxtral-mini-2602": {
+        "model_id": "voxtral-mini-2602",
+        "type": "mistral-ai",
+        "api_key": os.getenv("MISTRAL_API_KEY"),
+        "diarize": True,
+        "timestamp_granularities": ["segment"]
+    },
+    "voxtral-mini-latest": {
+        "model_id": "voxtral-mini-latest",
+        "type": "mistral-ai",
+        "api_key": os.getenv("MISTRAL_API_KEY"),
+        "diarize": True,
+        "timestamp_granularities": ["segment"]
+    },
     
     # Cloud API LLMs 
     "o4-mini":{

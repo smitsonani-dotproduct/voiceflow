@@ -1,6 +1,7 @@
 import time
 from models.whisper import TransformerBasedSTTModel
 from models.faster_whisper import FasterWhisperSTT
+from models.mistral_ai import MistralAISTT
 from models.base import MODELS
 
 def transcribe_audio(file_path: str, model_name: str, device: str = "cpu") -> dict:
@@ -16,6 +17,10 @@ def transcribe_audio(file_path: str, model_name: str, device: str = "cpu") -> di
         model = FasterWhisperSTT(
             model_key=model_name,
             device=device,
+        )
+    elif model_type == "mistral-ai":
+        model = MistralAISTT(
+            model_key=model_name,
         )
     else:
         model = TransformerBasedSTTModel(
