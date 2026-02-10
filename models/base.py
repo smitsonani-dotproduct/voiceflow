@@ -115,13 +115,6 @@ MODELS: Dict[str, Dict[str, Any]] = {
     },
     
     # Mistral AI Transcription
-    "voxtral-mini-2602": {
-        "model_id": "voxtral-mini-2602",
-        "type": "mistral-ai",
-        "api_key": os.getenv("MISTRAL_API_KEY"),
-        "diarize": True,
-        "timestamp_granularities": ["segment"]
-    },
     "voxtral-mini-latest": {
         "model_id": "voxtral-mini-latest",
         "type": "mistral-ai",

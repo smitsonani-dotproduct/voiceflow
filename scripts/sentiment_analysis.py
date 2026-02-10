@@ -6,7 +6,7 @@ This script reads existing transcription files and runs sentiment analysis on th
 from core.openai import getLLMModelResponse
 from core.prompt import get_prompt, formatSmartTemplate
 from core.storage import save_sentiment_analysis_result
-from core.audio_input import get_transcription_file
+from core.audio_processing import get_transcription_file
 import json
 from pathlib import Path
 
