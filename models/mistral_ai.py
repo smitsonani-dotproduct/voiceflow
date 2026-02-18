@@ -1,4 +1,5 @@
 import time
+import json
 from mistralai import Mistral, File
 from models.base import MODELS
 
@@ -59,11 +60,10 @@ class MistralAISTT:
                 timestamp_granularities=self.timestamp_granularities,
             )
 
-            for segment in response.segments:
-                speaker = segment.speaker_id or "unknown"
-                print(
-                    f"[{segment.start:.1f}s → {segment.end:.1f}s] {speaker}: {segment.text.strip()}"
-                )
+            conversation_segments = [segment.model_dump() for segment in response.segments]
+           
+            conversation_json = {"segments": conversation_segments}
+            print(json.dumps(conversation_json, indent=2))
         
             return response.text.strip()
 
