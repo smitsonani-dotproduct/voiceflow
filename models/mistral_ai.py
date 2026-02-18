@@ -44,7 +44,7 @@ class MistralAISTT:
         self.model = Mistral(api_key=self.api_key)
         self.load_time = time.time() - start
 
-    def transcribe(self, audio_path: str) -> str:
+    def transcribe(self, audio_path: str) -> dict:
         """
         Transcribe audio file using Mistral AI API
         """
@@ -62,10 +62,13 @@ class MistralAISTT:
 
             conversation_segments = [segment.model_dump() for segment in response.segments]
            
-            conversation_json = {"segments": conversation_segments}
-            print(json.dumps(conversation_json, indent=2))
+            # conversation_json = {"segments": conversation_segments}
+            # print(json.dumps(conversation_json, indent=2))
         
-            return response.text.strip()
+            return {
+                "text": response.text.strip(),
+                "segments": conversation_segments
+            }
 
     def info(self):
         """Return model information"""

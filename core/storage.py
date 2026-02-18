@@ -1,11 +1,12 @@
 import json
 from pathlib import Path
 from datetime import datetime
-from typing import Dict
+from typing import Dict, Any, Optional
 
 def save_transcription(
     audio_path: str,
     transcription: str,
+    segments: Optional[list] = None,
     output_dir: str = "outputs",
     model_name: str = ""
 ) -> Path:
@@ -13,9 +14,19 @@ def save_transcription(
     model_dir.mkdir(parents=True, exist_ok=True)  
 
     audio_name = Path(audio_path).stem
-    file_path = model_dir / f"{audio_name}.txt"
+    file_path = model_dir / f"{audio_name}.json"
 
-    file_path.write_text(transcription, encoding="utf-8")
+    # Create JSON structure with text and segments
+    transcription_data: Dict[str, Any] = {
+        "text": transcription,
+    }
+    
+    # Add segments if available
+    if segments:
+        transcription_data["segments"] = segments
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(transcription_data, f, indent=2, ensure_ascii=False)
 
     return file_path
 

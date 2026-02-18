@@ -31,11 +31,20 @@ def transcribe_audio(file_path: str, model_name: str, device: str = "cpu") -> di
     model.load_model()
 
     start = time.time()
-    transcription = model.transcribe(file_path)
+    transcription_result = model.transcribe(file_path)
     processing_time = time.time() - start
 
+    # Handle both dict (with segments) and string returns
+    if isinstance(transcription_result, dict):
+        transcription_text = transcription_result.get("text", "")
+        segments = transcription_result.get("segments", [])
+    else:
+        transcription_text = transcription_result
+        segments = []
+
     return {
-        "transcription": transcription,
+        "transcription": transcription_text,
+        "segments": segments,
         "processing_time": processing_time,
         "model_info": model.info(),
     }
