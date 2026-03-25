@@ -66,7 +66,7 @@ def main():
     Change the variables below to test different files.
     """
     # ===== CHANGE THESE VARIABLES TO TEST DIFFERENT FILES =====
-    stt_model_name = "whisper-small-en"
+    stt_model_name = "voxtral-mini-latest"
     # faster-whisper-tiny
     # faster-whisper-base
     # faster-whisper-small
@@ -75,17 +75,18 @@ def main():
     # distil-whisper-medium-en
     # whisper-tiny-en
     # whisper-base-en
-    # whisper-small-en  
+    # whisper-small-en 
+    # voxtral-mini-latest
 
-    file_name = "CallLog_9997307961.txt"
-    # CallLog_1101101216
+    file_name = "CallLog_1101106941.txt"
+    # CallLog_1101106941
     # CallLog_1101103039
     # CallLog_1101103086
     # CallLog_1101105569
     # CallLog_1101106941
     # CallLog_2815624367
-    # CallLog_2878500995 
-    # CallLog_4078702335 
+    # CallLog_2878500995
+    # CallLog_4078702335  
     # CallLog_4393101944
     # CallLog_5593943197
     # CallLog_5880420498
@@ -104,6 +105,7 @@ def main():
         filename=file_name,
         stt_model_name=stt_model_name
     )
+    print('file_path =>',file_path)
     
     # Run sentiment analysis on the specified file
     test_sentiment_on_transcription(file_path)

@@ -1,7 +1,8 @@
 import json
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
+
 
 def save_transcription(
     audio_path: str,
@@ -70,10 +71,10 @@ def save_sentiment_analysis_result(
     
     # Create the result dictionary
     result = {
-        "transcription_file": str(transcription_file),
-        "model": model_name,
+        # "transcription_file": str(transcription_file),
+        # "model": model_name,
         "sentiment_analysis": sentiment_data,
-        "token_usage": token_usage,
+        # "token_usage": token_usage,
     }
     
     # Create filename with timestamp
@@ -86,3 +87,23 @@ def save_sentiment_analysis_result(
         json.dump(result, f, indent=2, ensure_ascii=False)
     
     return result_file
+
+
+def save_combined_results(
+    results: List[Dict[str, Any]],
+    model_name: str = "",
+    output_dir: str = "outputs"
+) -> Path:
+    """
+    Save all combined transcription and sentiment analysis results to a single JSON file.
+    """
+    model_dir = Path(output_dir) / model_name
+    model_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create filename with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+    result_file = model_dir / f"{timestamp}.json"
+    
+    # Save to JSON file
+    with open(result_file, 'w', encoding='utf-8') as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)

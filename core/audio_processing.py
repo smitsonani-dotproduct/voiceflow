@@ -31,6 +31,30 @@ def get_audio_file(
 
     return str(file_path)
 
+
+def get_audio_files(samples_dir: str = "samples/audio") -> list:
+    """
+    Load all audio files from a folder instead of a single file.
+    Returns list of tuples: (file_path, file_name_without_extension)
+    """
+    SUPPORTED_FORMATS = (".wav", ".mp3", ".flac", ".mp4")
+    
+    samples_path = Path(samples_dir)
+    
+    if not samples_path.exists():
+        raise FileNotFoundError(f"Directory not found: {samples_dir}")
+    
+    audio_files = []
+    for file_path in samples_path.iterdir():
+        if file_path.is_file() and file_path.suffix.lower() in SUPPORTED_FORMATS:
+            audio_files.append((str(file_path), file_path.stem))
+    
+    if not audio_files:
+        raise FileNotFoundError(f"No audio files found in: {samples_dir}")
+    
+    return audio_files
+
+
 def load_reference_text(
     file_path: str,
     transcript_dir: str = "samples/transcript",
