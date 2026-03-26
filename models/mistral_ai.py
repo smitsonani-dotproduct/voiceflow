@@ -1,6 +1,6 @@
 import time
-import json
-from mistralai import Mistral, File
+from mistralai.client import Mistral
+from mistralai.client.models import File
 from models.base import MODELS
 
 
